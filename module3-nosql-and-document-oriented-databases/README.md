@@ -1,3 +1,4 @@
+# Hello, world
 # NoSQL and Document-oriented databases
 
 NoSQL, no worries? Not exactly, but it's still a powerful approach for some

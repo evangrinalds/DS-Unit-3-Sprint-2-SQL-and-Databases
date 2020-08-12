@@ -1,6 +1,6 @@
 import pymongo
 
-password = 'uZLDbYg2fwlyUZld' # Don't commit/share this! Reset it if it leak
+password = 'XXX' # Don't commit/share this! Reset it if it leak
 dbname = 'test'
 connection = client = ('mongodb+srv://egrinalds:' + password +
                        '@cluster0.mmghk.mongodb.net/' + dbname +

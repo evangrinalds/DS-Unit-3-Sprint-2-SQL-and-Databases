@@ -105,15 +105,7 @@ help(db.test.update_one)
 
 result = db.test.update_one({'x': 1}, {'$inc': {'x': 3}})
 
-result.matched_count
-
-result.modified_count
-
 result = db.test.update_one({'x': 100}, {'$inc': {'x': 300}})
-
-result.matched_count
-
-result.modified_count
 
 list(db.test.find())
 

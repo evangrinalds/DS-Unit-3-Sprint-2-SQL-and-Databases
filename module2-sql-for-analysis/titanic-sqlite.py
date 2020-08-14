@@ -12,4 +12,8 @@ conn = sqlite3.connect('titanic.sqlite3')
 # df.to_sql('titanic', con=conn)
 
 if __name__ == '__main__':
+<<<<<<< HEAD
     df.to_sql('titanic', con=conn)
+=======
+    df.to_sql('titanic', con=conn)
+>>>>>>> origin/master

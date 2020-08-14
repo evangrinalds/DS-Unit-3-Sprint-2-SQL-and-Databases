@@ -1,7 +1,11 @@
 # imports
 import psycopg2
 import pandas as pd
+import sqlite3
 from psycopg2.extras import execute_values
+
+ticonn = sqlite3.connect('titanic.sqlite3')
+ti_curs = ticonn.cursor()
 
 # Read in titanic
 df = pd.read_csv('titanic.csv')
@@ -12,6 +16,7 @@ df['Parents/Children Aboard'].rename('parentschildren', axis=1)
 
 # Clean data
 df['Name'] = df['Name'].str.replace("'", "")
+df.Name = df.Name.str.replace('.', '')
 
 # Credential for cloud DB, password is TOP SECRET
 dbname = 'XXX'

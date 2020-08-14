@@ -1,36 +1,33 @@
+# Titanic csv ---> PostgreSQL (Elephant SQL)
+
 # imports
 import psycopg2
 import pandas as pd
-import sqlite3
 from psycopg2.extras import execute_values
 
-ticonn = sqlite3.connect('titanic.sqlite3')
-ti_curs = ticonn.cursor()
-
-# Read in titanic
+# reading in titanic Data
 df = pd.read_csv('titanic.csv')
 
-# Read into elephant
+# renaming columns in order to have them read into elephant
 df['Siblings/Spouses Aboard'].rename('siblingsspouse', axis=1)
 df['Parents/Children Aboard'].rename('parentschildren', axis=1)
 
-# Clean data
+# Clean the data
 df['Name'] = df['Name'].str.replace("'", "")
-df.Name = df.Name.str.replace('.', '')
 
 # Credential for cloud DB, password is TOP SECRET
-dbname = 'XXX'
-user = 'XXX'
-password = 'XXX'
+dbname = 'XXXX'
+user = 'XXXX'
+password = 'XXXX'
 host = 'isilo.db.elephantsql.com'
 
-# Connection to cloud
+# connection to cloud
 pg_conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host)
 
 # Cursor
 pg_curs = pg_conn.cursor()
 
-# Titanic Table
+# creating Titanic Table
 create_titanic_table = """
 DROP TABLE IF EXISTS Titanic;
 CREATE TABLE Titanic (
@@ -46,7 +43,7 @@ CREATE TABLE Titanic (
 );
 """
 
-# run table and commit table
+# running table and committing table
 pg_curs.execute(create_titanic_table)
 pg_conn.commit()
 
@@ -60,7 +57,7 @@ VALUES %s;
 # commit
 pg_conn.commit()
 
-# Running to make sure works
+
 pg_curs.execute("""
 SELECT *
 FROM Titanic

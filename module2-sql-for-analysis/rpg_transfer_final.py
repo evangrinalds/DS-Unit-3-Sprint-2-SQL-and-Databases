@@ -1,13 +1,13 @@
 """
-Take RPG data from sqlite3 to Elephant SQL
+RPG data sqlite3 ---> PostgeSQL (Elephant SQL)
 """
 
 import psycopg2
 import sqlite3
 
-dbname = 'XXX'
-user = 'XXX'
-password = 'XXX'
+dbname = 'XXXXX'
+user = 'XXXXX'
+password = 'XXXXX'
 host = 'isilo.db.elephantsql.com'
 
 pg_conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host)

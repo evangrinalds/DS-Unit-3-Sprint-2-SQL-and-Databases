@@ -1,5 +1,5 @@
 """
-Take RPG data from sqlite3 to out elephant sql DB
+Take RPG data from sqlite3 to Elephant SQL 
 """
 
 import psycopg2
